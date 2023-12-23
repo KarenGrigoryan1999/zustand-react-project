@@ -1,11 +1,11 @@
 
 import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput } from "react-native";
 
-export default function Input({placeholder}) {
+export default function Input({placeholder, onChangeText}) {
 
   return (
     <KeyboardAvoidingView>
-            <TextInput style={styles.input} placeholder={placeholder} />
+            <TextInput style={styles.input} placeholder={placeholder} onChangeText={onChangeText} />
     </KeyboardAvoidingView>
   );
 }
