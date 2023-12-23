@@ -12,7 +12,7 @@ const SmallTitle = ({
 const styles = StyleSheet.create({
   container: {
     fontSize: 20,
-    lineHeight: 62,
+    lineHeight: 50,
     fontWeight: '600'
   },
 });

@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AboutScreen from "./screens/AboutScreen";
 import StackNavigation from "../stack";
+import EventScreen from "./screens/EventScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,11 +20,24 @@ export default function Navigation() {
           if(route.name === 'Todo') {
             iconName = focused ? "settings" : "settings-outline";
           }
+          if(route.name === 'Events') {
+            iconName = focused ? "calendar" : "calendar-outline";
+          }
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'orange',
+        tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'silver',
+        tabBarStyle: {
+          position: 'absolute',
+          bottom: 25,
+          left: 20,
+          right: 20,
+          borderRadius: 30,
+          paddingBottom: 10,
+          paddingTop: 10,
+          height: 60,
+        }
       })}>
         <Tab.Screen
           name="Home"
@@ -34,6 +48,11 @@ export default function Navigation() {
           name="Todo"
           component={AboutScreen}
           options={{title: 'Список дел'}}
+        />
+        <Tab.Screen
+          name="Events"
+          component={EventScreen}
+          options={{headerShown: false, title: 'Список событий'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
