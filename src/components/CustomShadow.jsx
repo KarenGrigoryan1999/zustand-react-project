@@ -6,8 +6,8 @@ const CustomShadow = ({
 }) => {
 
   return (
-    <Shadow startColor={'#e4e1e1'} endColor={'#faf9f9'} offset={[0, 15]} distance={18} style={{...style, marginBottom: 30}}>{children}</Shadow>
-  );
+    <Shadow startColor={'#f8f7f7'} endColor={'#ffffff'} offset={[0, 15]} distance={18} style={{...style, marginBottom: 30}}>{children}</Shadow>
+  );0
 }
 
 export default CustomShadow;

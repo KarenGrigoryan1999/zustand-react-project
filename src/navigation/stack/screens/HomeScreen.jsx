@@ -4,6 +4,7 @@ import { View, StyleSheet, Text, TouchableHighlight, ScrollView } from 'react-na
 import MainTitle from '../../../components/MainTitle';
 import MiddleTitle from '../../../components/MiddleTitle';
 import PictureCard from '../../../components/PictureCard';
+import SearchInput from '../../../components/SearchInput';
 
 export default function HomeScreen({ navigation }) {
   const carInfo = [{
@@ -52,6 +53,7 @@ export default function HomeScreen({ navigation }) {
           </TouchableHighlight>
         ))
       }
+      <SearchInput />
     </View>
   );
 }

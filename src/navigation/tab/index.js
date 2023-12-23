@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AboutScreen from "./screens/AboutScreen";
 import StackNavigation from "../stack";
 import EventScreen from "./screens/EventScreen";
+import TestScreen from "./screens/TestScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +23,9 @@ export default function Navigation() {
           }
           if(route.name === 'Events') {
             iconName = focused ? "calendar" : "calendar-outline";
+          }
+          if(route.name === 'Test') {
+            iconName = focused ? "settings" : "settings-outline";
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -53,6 +57,11 @@ export default function Navigation() {
           name="Events"
           component={EventScreen}
           options={{headerShown: false, title: 'Список событий'}}
+        />
+        <Tab.Screen
+          name="Test"
+          component={TestScreen}
+          options={{title: 'Тест'}}
         />
       </Tab.Navigator>
     </NavigationContainer>

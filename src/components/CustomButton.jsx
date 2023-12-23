@@ -18,8 +18,13 @@ const CustomButton = ({
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    borderRadius: 5,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: 15,
+    paddingLeft: 15,
+    borderRadius: 35,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
