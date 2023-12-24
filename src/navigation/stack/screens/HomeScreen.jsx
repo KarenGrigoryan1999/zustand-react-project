@@ -26,6 +26,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <SearchInput />
       <MainTitle>Перечень автомобилей</MainTitle>
       <ScrollView horizontal={true} contentContainerStyle={styles.choseBetweenTwoCarBlock}>
         <PictureCard
@@ -53,14 +54,14 @@ export default function HomeScreen({ navigation }) {
           </TouchableHighlight>
         ))
       }
-      <SearchInput />
+      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-
+    backgroundColor: '#fff',
   },
   choseBetweenTwoCarBlock: {
     flexDirection: 'row',

@@ -7,6 +7,7 @@ import StackNavigation from "../stack";
 import EventScreen from "./screens/EventScreen";
 import TestScreen from "./screens/TestScreen";
 import MatrixScreen from './screens/MatrixScreen';
+import FullEventInfoScreen from "./screens/FullEventInfoScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,6 +30,9 @@ export default function Navigation() {
             iconName = focused ? "settings" : "settings-outline";
           }
           if (route.name === 'Matrix') {
+            iconName = focused ? "settings" : "settings-outline";
+          }
+          if(route.name === 'FullEvent') {
             iconName = focused ? "settings" : "settings-outline";
           }
 
@@ -71,6 +75,11 @@ export default function Navigation() {
           name="Matrix"
           component={MatrixScreen}
           options={{ title: 'Матрица' }}
+        />
+        <Tab.Screen
+          name="FullEvent"
+          component={FullEventInfoScreen}
+          options={{title: 'Описание мероприятия'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
