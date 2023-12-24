@@ -6,7 +6,7 @@ const Matrix = ({
 
   return (
     <TouchableOpacity onPress={() => alert('1')}>
-      <View style={{position: 'relative', height: 300, backgroundColor: 'silver'}}>
+      <View style={{position: 'relative', height: 300}}>
         {elements[0].val >= 1 && <Image style={styles.e_1} source={require('../../assets/matrix_elements/1.png')} />}
         {elements[1].val >= 1 && <Image style={styles.e_2} source={require('../../assets/matrix_elements/2.png')} />}
         {elements[2].val >= 1 && <Image style={styles.e_3} source={require('../../assets/matrix_elements/3.png')} />}
@@ -31,7 +31,6 @@ const Matrix = ({
         {elements[5].val >= 3 && <Image style={styles.e_666} source={require('../../assets/matrix_elements/888.png')} />}
         {elements[6].val >= 3 && <Image style={styles.e_777} source={require('../../assets/matrix_elements/777.png')} />}
         {elements[7].val >= 3 && <Image style={styles.e_888} source={require('../../assets/matrix_elements/666.png')} />}
-
         <Text style={styles.e_title_1}>{elements[0].name}</Text>
         <Text style={styles.e_title_2}>{elements[1].name}</Text>
         <Text style={styles.e_title_3}>{elements[2].name}</Text>
@@ -52,179 +51,187 @@ const styles = StyleSheet.create({
   },
   e_1: {
     position: 'absolute',
-    left: 140,
+    left: 128,
     top: 90,
     zIndex: 10,
   },
   e_11: {
     position: 'absolute',
-    left: 140,
+    left: 126,
     top: 53,
     zIndex: 9,
   },
   e_111: {
     position: 'absolute',
-    left: 140,
+    left: 125,
     top: 33,
   },
   e_2: {
     position: 'absolute',
-    left: 140,
+    left: 127,
     top: 110,
     zIndex: 10,
   },
   e_222: {
     position: 'absolute',
-    left: 140,
-    top: 69,
+    left: 123,
+    top: 70,
   },
   e_22: {
     position: 'absolute',
-    left: 138,
+    left: 125,
     top: 84,
     zIndex: 9,
   },
   e_3: {
     position: 'absolute',
-    left: 140,
+    left: 127,
     top: 151,
     zIndex: 10,
   },
   e_333: {
     position: 'absolute',
-    left: 140,
+    left: 124,
     top: 148,
   },
   e_33: {
     position: 'absolute',
-    left: 138,
+    left: 125,
     top: 149,
     zIndex: 9,
   },
   e_4: {
     position: 'absolute',
-    left: 140,
-    top: 151,
+    left: 128,
+    top: 150,
     zIndex: 10,
   },
   e_44: {
     position: 'absolute',
-    left: 138,
+    left: 125,
     top: 148,
     zIndex: 9,
   },
   e_444: {
     position: 'absolute',
-    left: 142,
-    top: 147,
+    left: 124,
+    top: 145,
   },
   e_5: {
     position: 'absolute',
-    left: 97,
-    top: 151,
+    left: 86,
+    top: 150,
     zIndex: 10,
   },
   e_55: {
     position: 'absolute',
-    left: 71,
+    left: 57,
     top: 148,
     zIndex: 9,
   },
   e_555: {
     position: 'absolute',
-    left: 60,
-    top: 146,
+    left: 42,
+    top: 145,
   },
   e_6: {
     position: 'absolute',
-    left: 80,
-    top: 151,
+    left: 69,
+    top: 150,
     zIndex: 10,
   },
   e_66: {
     position: 'absolute',
-    left: 43,
+    left: 29,
     top: 149,
     zIndex: 9,
   },
   e_666: {
     position: 'absolute',
-    left: 25,
+    left: 10,
     top: 148,
   },
   e_7: {
     position: 'absolute',
-    left: 80,
+    left: 69,
     top: 108,
     zIndex: 10,
   },
   e_77: {
     position: 'absolute',
-    left: 42,
+    left: 30,
     top: 81,
     zIndex: 9,
   },
   e_777: {
     position: 'absolute',
-    left: 24,
-    top: 68,
+    left: 11,
+    top: 67,
   },
   e_8: {
     position: 'absolute',
-    left: 99,
+    left: 87,
     top: 90,
     zIndex: 10,
   },
   e_88: {
     position: 'absolute',
-    left: 72,
+    left: 60,
     top: 52,
     zIndex: 9,
   },
   e_888: {
     position: 'absolute',
-    left: 58,
+    left: 47,
     top: 34,
   },
   e_title_1: {
     position: 'absolute',
-    left: 200,
-    top: 20,
+    left: 220,
+    top: 25,
+    width: 50,
   },
   e_title_2: {
     position: 'absolute',
     left: 320,
     top: 100,
+    width: 50,
   },
   e_title_3: {
     position: 'absolute',
     left: 320,
     top: 190,
+    width: 50,
   },
   e_title_4: {
     position: 'absolute',
     left: 250,
     top: 260,
+    width: 50,
   },
   e_title_5: {
     position: 'absolute',
     left: 125,
     top: 260,
+    width: 50,
   },
   e_title_6: {
     position: 'absolute',
-    left: 70,
+    left: 50,
     top: 190,
+    width: 50,
   },
   e_title_7: {
     position: 'absolute',
-    left: 70,
+    left: 50,
     top: 110,
+    width: 50,
   },
   e_title_8: {
     position: 'absolute',
-    left: 110,
-    top: 40,
+    left: 100,
+    top: 20,
+    width: 50,
   },
 });
 

@@ -43,11 +43,6 @@ export default function TestScreen() {
     setQuestions(prev => prev.map((el, idx) => idx === currentElementIndex ? { ...el, userAnswer: ans } : el));
   }
 
-  useEffect(() => {
-    // console.log(questions)
-    console.log(currentElement.userAnswer)
-  }, [currentElement])
-
   return (
     <View style={styles.container}>
       <Text style={styles.customTitle}>{currentElement.title}</Text>

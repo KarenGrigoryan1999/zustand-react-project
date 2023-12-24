@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import ExtraScreen from './ExtraScreen';
-import HomeScreen from "./screens/HomeScreen";
+import AutorizationScreen from "./screens/AuthorizationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -11,7 +11,7 @@ export default function StackNavigation() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
+          component={AutorizationScreen}
           options={{title: 'Главная страница'}}
         />
         <Stack.Screen

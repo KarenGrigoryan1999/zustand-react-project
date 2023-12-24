@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
   container: {
     fontSize: 24,
     lineHeight: 62,
-    fontWeight: '800'
+    fontWeight: '800',
+    fontFamily: 'Montserrat-Black'
   },
 });
 

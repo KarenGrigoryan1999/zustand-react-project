@@ -6,25 +6,29 @@ import AboutScreen from "./screens/AboutScreen";
 import StackNavigation from "../stack";
 import EventScreen from "./screens/EventScreen";
 import TestScreen from "./screens/TestScreen";
+import MatrixScreen from './screens/MatrixScreen';
 
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={({route}) => ({
-        tabBarIcon: ({color, focused, size}) => {
+      <Tab.Navigator screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, focused, size }) => {
           let iconName;
-          if(route.name === 'Home') {
+          if (route.name === 'Home') {
             iconName = focused ? "home" : "home-outline";
           }
-          if(route.name === 'Todo') {
+          if (route.name === 'Todo') {
             iconName = focused ? "settings" : "settings-outline";
           }
-          if(route.name === 'Events') {
+          if (route.name === 'Events') {
             iconName = focused ? "calendar" : "calendar-outline";
           }
-          if(route.name === 'Test') {
+          if (route.name === 'Test') {
+            iconName = focused ? "settings" : "settings-outline";
+          }
+          if (route.name === 'Matrix') {
             iconName = focused ? "settings" : "settings-outline";
           }
 
@@ -46,22 +50,27 @@ export default function Navigation() {
         <Tab.Screen
           name="Home"
           component={StackNavigation}
-          options={{headerShown: false, title: 'Главная'}}
+          options={{ headerShown: false, title: 'Главная' }}
         />
         <Tab.Screen
           name="Todo"
           component={AboutScreen}
-          options={{title: 'Список дел'}}
+          options={{ title: 'Список дел' }}
         />
         <Tab.Screen
           name="Events"
           component={EventScreen}
-          options={{headerShown: false, title: 'Список событий'}}
+          options={{ headerShown: false, title: 'Список событий' }}
         />
         <Tab.Screen
           name="Test"
           component={TestScreen}
-          options={{title: 'Тест'}}
+          options={{ title: 'Тест' }}
+        />
+        <Tab.Screen
+          name="Matrix"
+          component={MatrixScreen}
+          options={{ title: 'Матрица' }}
         />
       </Tab.Navigator>
     </NavigationContainer>
