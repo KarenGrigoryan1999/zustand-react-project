@@ -9,7 +9,7 @@ import useEventsStore from '../../../store/eventsStore';
 import SearchInput from '../../../components/SearchInput';
 
 
-export default function EventScreen() {
+export default function EventScreen({navigation}) {
   const status = useEventsStore(state => state.status);
   const getEvents = useEventsStore(state => state.getEvents);
   const events = useEventsStore(state => state.events);
@@ -50,7 +50,7 @@ export default function EventScreen() {
     <View style={styles.container}>
       <MainTitle>Рекомендации</MainTitle>
       <SearchInput onChange={onSearchTextChange} onSubmit={onSearchTextSubmit} />
-      {textFieldChanging && <ActivityIndicator size={50} color={'black'} />}
+      {textFieldChanging && <View style={{paddingTop: 50}}><ActivityIndicator size={50} color={'black'} /></View>}
       <ScrollView style={{ height: '100%', marginTop: 10 }}>
         {(!events || events.length === 0) && <MiddleTitle>Ничего не найдено :(</MiddleTitle>}
         {
@@ -62,7 +62,7 @@ export default function EventScreen() {
               category={event.category.name}
               image={{uri: event.main_image}}
               date={event.date}
-              onPress={() => alert('11')}
+              onPress={() => navigation.navigate('FullEvent', event)}
             />
           ))
         }

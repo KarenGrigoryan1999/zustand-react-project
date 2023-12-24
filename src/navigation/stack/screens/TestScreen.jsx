@@ -1,21 +1,26 @@
 import { useState, useMemo, useEffect } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import CustomButton from '../../../components/CustomButton';
 import CustomShadow from '../../../components/CustomShadow';
+import useAuthStore from '../../../store/authStore';
+import useQuestionStore from '../../../store/useQuestionsStore';
 
-export default function TestScreen() {
-  const [questions, setQuestions] = useState([
-    {
-      id: 1,
-      title: 'Как ты оцениваешь своё моральное состояние?',
-      userAnswer: null,
-    },
-    {
-      id: 2,
-      title: 'Вопрос 2?',
-      userAnswer: null,
-    },
-  ]);
+export default function TestScreen({navigation}) {
+  const token = useAuthStore(state => state.token);
+  const status = useQuestionStore(state => state.status);
+  const result = useQuestionStore(state => state.result);
+  const loadedQuestions = useQuestionStore(state => state.questions);
+  const getQuestuins = useQuestionStore(state => state.getQuestions);
+  const sendResult = useQuestionStore(state => state.sendResult);
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    getQuestuins(token);
+  }, []);
+
+  useEffect(() => {
+    if(loadedQuestions && loadedQuestions.length != 0) setQuestions(loadedQuestions.map((el, idx) => ({survey_id: el.id, title: el.question, value: null})));
+  }, [loadedQuestions]);
 
   const answers = [1, 2, 3, 4, 5];
 
@@ -35,12 +40,17 @@ export default function TestScreen() {
     }
   };
 
-  const getRezultTest = () => {
-    alert('Вы прошли тест!')
+  const getRezultTest = async () => {
+    await sendResult(token, questions);
+    //navigation.navigate('Extra');
   };
 
   const selectAnswer = (ans) => () => {
-    setQuestions(prev => prev.map((el, idx) => idx === currentElementIndex ? { ...el, userAnswer: ans } : el));
+    setQuestions(prev => prev.map((el, idx) => idx === currentElementIndex ? { ...el, value: ans } : el));
+  }
+
+  if(status === 'loading' || !currentElement) {
+    return <View style={{flex: 1, height: '100%', alignItems: 'center', justifyContent: 'center'}}><ActivityIndicator size={50} color={'black'} /></View>
   }
 
   return (
@@ -50,7 +60,7 @@ export default function TestScreen() {
         {answers.map((answer) => (
           <CustomShadow style={{marginRight: 5}} key={answer}>
             <TouchableOpacity onPress={selectAnswer(answer)}>
-              <View style={{ ...styles.answer, borderColor: answer === currentElement.userAnswer ? '#FFDD00' : 'transparent', borderWidth: 3 }}>
+              <View style={{ ...styles.answer, borderColor: answer === currentElement.value ? '#FFDD00' : 'transparent', borderWidth: 3 }}>
                 <Text style={styles.textAnswer}>{answer}</Text>
               </View>
             </TouchableOpacity>
@@ -58,7 +68,7 @@ export default function TestScreen() {
         ))}
       </View>
       <View style={styles.containerPage}>
-        <Text style={styles.pageText}>{currentElement.id}/{questions.length}</Text>
+        <Text style={styles.pageText}>{currentElement.survey_id}/{questions.length}</Text>
         <View style={{ flexDirection: 'row', gap: 5 }}>
           <CustomButton title={'Назад'} onPress={swithQuestionEnd} color={'#E2E2E2'}></CustomButton>
           {questions.length - 1 === currentElementIndex ?

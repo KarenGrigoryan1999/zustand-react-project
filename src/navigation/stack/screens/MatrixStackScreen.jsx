@@ -3,8 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-nati
 import Matrix from '../../../components/Matrix';
 import CustomShadow from '../../../components/CustomShadow';
 
-export default function TestScreen() {
-
+export default function MatrixStackScreen() {
   const chapters = [
     {
       name: 'Физическое',
@@ -44,7 +43,7 @@ export default function TestScreen() {
     <View style={styles.container}>
       <Matrix elements={chapters} />
       <ScrollView style={{ margin: 20 }}>
-        {chapters.map((el, idx) => (<CustomShadow key={idx} style={styles.chapterContainer}>
+        {chapters.map(el => (<CustomShadow style={styles.chapterContainer}>
           <Text style={styles.matrixResult}>{el.val}/5</Text>
           <Text style={styles.matrixChapter}>{el.name}</Text>
         </CustomShadow>))}

@@ -5,7 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import AboutScreen from "./screens/AboutScreen";
 import StackNavigation from "../stack";
 import EventScreen from "./screens/EventScreen";
-import TestScreen from "./screens/TestScreen";
 import MatrixScreen from './screens/MatrixScreen';
 import FullEventInfoScreen from "./screens/FullEventInfoScreen";
 
@@ -25,9 +24,6 @@ export default function Navigation() {
           }
           if (route.name === 'Events') {
             iconName = focused ? "calendar" : "calendar-outline";
-          }
-          if (route.name === 'Test') {
-            iconName = focused ? "settings" : "settings-outline";
           }
           if (route.name === 'Matrix') {
             iconName = focused ? "settings" : "settings-outline";
@@ -57,19 +53,9 @@ export default function Navigation() {
           options={{ headerShown: false, title: 'Главная' }}
         />
         <Tab.Screen
-          name="Todo"
-          component={AboutScreen}
-          options={{ title: 'Список дел' }}
-        />
-        <Tab.Screen
           name="Events"
           component={EventScreen}
           options={{ headerShown: false, title: 'Список событий' }}
-        />
-        <Tab.Screen
-          name="Test"
-          component={TestScreen}
-          options={{ title: 'Тест' }}
         />
         <Tab.Screen
           name="Matrix"
@@ -79,7 +65,7 @@ export default function Navigation() {
         <Tab.Screen
           name="FullEvent"
           component={FullEventInfoScreen}
-          options={{title: 'Описание мероприятия'}}
+          options={{headerShown: false, title: 'Описание мероприятия'}}
         />
       </Tab.Navigator>
     </NavigationContainer>

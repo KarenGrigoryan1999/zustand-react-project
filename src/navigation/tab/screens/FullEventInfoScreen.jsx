@@ -4,7 +4,9 @@ import CustomButton from '../../../components/CustomButton';
 import StarIcon from '../../../icons/StarIcon'
 
 //для typeState main | subscribtionEvent | finishEvent
-export default function FullEventInfoScreen({ typeState }) {
+export default function FullEventInfoScreen({ route: {params} }) {
+  const data = params;
+  console.log(data);
   const [modalVisible, setModalVisible] = useState(false);
   const [openListQuestionsMember, setOpenListQuestionsMember] = useState(false);
 
@@ -24,15 +26,15 @@ export default function FullEventInfoScreen({ typeState }) {
             <View />
           </View>
         </View>
-        <Text style={styles.categoryEvent}>Здоровье</Text>
+        <Text style={styles.categoryEvent}>{data.category.name}</Text>
         <View style={{ paddingRight: 20, paddingLeft: 20, paddingBottom: 60 }}>
-          <Text style={styles.titleEvent}>Групповая медитация для начинающих</Text>
-          <Text style={styles.authorEvent}>Зоя Ивановна</Text>
+          <Text style={styles.titleEvent}>{data.title}</Text>
+          <Text style={styles.authorEvent}>{data.lector.first_name + ' ' + data.lector.last_name}</Text>
           <View style={styles.wrapperData}>
             <View style={{ flexDirection: 'row' }}>
               <Image
                 style={styles.mapPointStyle}
-                source={require('../../../../assets/mapPoint.png')}
+                source={{uri: data.main_image}}
               />
               <Text style={{ fontSize: 18 }}>Онлайн</Text>
             </View>
@@ -51,7 +53,7 @@ export default function FullEventInfoScreen({ typeState }) {
           <View style={styles.borderLine}>
             <Text style={styles.titleDescriptionText}>Описание</Text>
             <Text style={styles.descriptionText}>
-              На лекции будет особое внимание уделено стратегиям профилактики выгорания, а также методам преодоления этого состояния. Вы узнаете о важности управления стрессом, поддержке психического здоровья и развитии навыков эмоциональной стойкости для предотвращения выгорания как в личной, так и в профессиональной жизни.
+              {data.description}
             </Text>
           </View>
           <View style={styles.borderLine}>
@@ -66,7 +68,7 @@ export default function FullEventInfoScreen({ typeState }) {
             </View>
           </View>
           <Text style={styles.titleDescriptionText}>Число участников</Text>
-          {typeState === 'main' &&
+          {true && //typeState === 'main'
             <>
               <Text style={{ color: '#858585', paddingBottom: 20 }}>10/30</Text>
               <CustomButton
@@ -77,7 +79,7 @@ export default function FullEventInfoScreen({ typeState }) {
               />
             </>
           }
-          {typeState === 'subscribtionEvent' &&
+          {false && //typeState === 'subscribtionEvent'
             <>
               <Text style={{ color: '#858585', paddingBottom: 20 }}>10/30</Text>
               <CustomButton
@@ -95,7 +97,7 @@ export default function FullEventInfoScreen({ typeState }) {
               />
             </>
           }
-          {typeState === 'finishEvent' &&
+          {false &&//typeState === 'finishEvent'
           <>
             <Text style={{ color: '#858585', paddingBottom: 20 }}>10</Text>
             <TouchableOpacity onPress={() => setOpenListQuestionsMember(!openListQuestionsMember)}>
@@ -169,7 +171,7 @@ export default function FullEventInfoScreen({ typeState }) {
                   />
                 </TouchableOpacity>
               </View>
-              {typeState == 'finishEvent' &&
+              {false && //typeState == 'finishEvent'
                 <>
                   <Text style={styles.modalTitle}>Оцените качество мероприятия</Text>
                   <View
@@ -198,7 +200,7 @@ export default function FullEventInfoScreen({ typeState }) {
                   />
                 </>
               }
-              {typeState === 'subscribtionEvent' &&
+              {false && //typeState === 'subscribtionEvent'
                 <>
                   <Text style={styles.modalTitle}>Вопрос к мероприятию</Text>
                   <View style={{ padding: 15 }}></View>

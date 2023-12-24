@@ -16,7 +16,7 @@ const state = (set) => ({
   getEvents: async (searchText) => {
     try {
       state.status = 'loading';
-      const { data } = await axios.get(`${baseUrl}/?data=${searchText}`);
+      const { data } = await axios.get(`${baseUrl}/?search=${searchText}`);
       set((state) => {
         state.events = data.data;
         state.status = 'success';
