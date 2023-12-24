@@ -95,7 +95,7 @@ export default function FullEventInfoScreen({ typeState }) {
               />
             </>
           }
-          {/* {typeState === 'finishEvent' && */}
+          {typeState === 'finishEvent' &&
           <>
             <Text style={{ color: '#858585', paddingBottom: 20 }}>10</Text>
             <TouchableOpacity onPress={() => setOpenListQuestionsMember(!openListQuestionsMember)}>
@@ -156,7 +156,7 @@ export default function FullEventInfoScreen({ typeState }) {
               <Text style={{ textDecorationLine: 'underline' }}>Посмотреть запись</Text>
             </View>
           </>
-          {/* } */}
+          }
         </View>
         {modalVisible &&
           <View style={styles.wrapperModal}>
